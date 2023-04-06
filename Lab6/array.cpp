@@ -6,13 +6,15 @@ using namespace std::chrono;
 
 #define max 100
 
+//creating class for implementing stack using arrays
 class array_stack {
 private: 
     int stack_arr[max];
     int top = -1;
 
 public:
-
+    
+//creating function for pushing an element to the top of the stack
 void push(int data){
     if (top == max-1){
         cout << "Stack Overflow"<<endl;
@@ -22,7 +24,8 @@ void push(int data){
     stack_arr[top] = data;
     cout << "pushed item : "<< data<<endl;
 }
-
+    
+//creating a function to remove an element from the top of the stack and return the value
 int pop(){
     if (top==-1){
         cout << "Stack Underflow"<<endl;
@@ -33,7 +36,8 @@ int pop(){
     cout << "popped item : "<< value<<endl;
     return value;
 }
-
+    
+//creating a function to display the current stack
 void display(){
     cout<<"[";
     for (int i=top;i>=0;i--){
@@ -45,11 +49,13 @@ void display(){
 };
 
 int main(){
+    //getting randomly generated values in to an integer array
     int data_arr[20];
     for (int i=0;i<20;i++){
         data_arr[i] = rand() %100;
     }
-
+    
+    //stack implementation using arrays
     array_stack as;
 
     for (int j=0;j<10;j++){
