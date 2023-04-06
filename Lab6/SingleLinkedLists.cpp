@@ -4,20 +4,23 @@
 using namespace std;
 using namespace std::chrono;
 
-
+//creating a structure for a node in the linked list
 struct node{
     int data;
     struct node * link;
 };
+
+//creating a class for implementing stacks using Linked Lists
 class stack_linked{
 private:
-    struct node *head;
+    struct node *head;      //head pointer to keep track of the top of the stack
 
 public:
     stack_linked(){
         head = NULL;
     }
-
+    
+    //Creating a function to insert an element at the top of the stack
     void push(int element){
         node *newnode = new node;
         newnode -> data = element;
@@ -26,6 +29,7 @@ public:
         cout<<"pushed item : "<< element<<endl;
     }
 
+    //creating a function to remove the topmost element of the stack
     int pop(){
         if (head == NULL){
             cout << "Stack Underflow" <<endl;
@@ -40,6 +44,7 @@ public:
 
     } 
 
+    //creating a function to display the current stack
     void display(){
         node *temp;
         temp = head;
@@ -59,11 +64,13 @@ public:
 };
 
 int main(){
+    //getting randomly generated values in to an integer array
     int data_arr[20];
     for (int i=0;i<20;i++){
         data_arr[i] = rand() %100;
     }
     
+    //stack implementation using linked lists
     stack_linked sl;
     for (int j=0;j<10;j++){
         sl.push(data_arr[j]);
